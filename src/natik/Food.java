@@ -3,14 +3,14 @@ package natik;
 import java.awt.*;
 import java.util.Random;
 
-public class Apple {
+public class Food {
     private int x;
     private int y;
     private int size;
     private Random random = new Random();
     private Color color;
 
-    public Apple(int x, int y, int size) {
+    public Food(int x, int y, int size) {
         this.x = x;
         this.y = y;
         this.size = size;

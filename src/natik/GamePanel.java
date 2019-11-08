@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     private boolean right = true, left, up, down;
 
     private Random random = new Random();
-    private Apple apple;
+    private Food food;
 
     private boolean running;
     private Thread thread;
@@ -32,9 +32,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         thread.start();
         running = true;
         snake = new ArrayList<>();
-        x = random.nextInt(WIDTH / TILE_SIZE - 1);
-        y = random.nextInt(HEIGHT / TILE_SIZE - 1);
-        apple = new Apple(random.nextInt(WIDTH / TILE_SIZE), random.nextInt(WIDTH / TILE_SIZE), TILE_SIZE);
+        x = random.nextInt(WIDTH / TILE_SIZE/2);
+        y = random.nextInt(HEIGHT / TILE_SIZE/2);
+        food = new Food(random.nextInt(WIDTH / TILE_SIZE), random.nextInt(WIDTH / TILE_SIZE), TILE_SIZE);
         addKeyListener(this);
     }
 
@@ -50,10 +50,14 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             g.drawLine(0, i * TILE_SIZE, WIDTH, i * TILE_SIZE);
         }
 
-        for (BodyPart bodyPart : snake) {
-            bodyPart.draw(g);
+        for (int i =0;i<snake.size();i++) {
+            if(i==snake.size()-1){
+                snake.get(i).drawHead(g);
+            } else {
+                snake.get(i).draw(g);
+            }
         }
-        apple.draw(g);
+        food.draw(g);
     }
 
     private void tick() throws InterruptedException {
@@ -79,7 +83,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         snake.add(new BodyPart(x, y, TILE_SIZE));
         snake.remove(0);
 
-        if (x == apple.getX() && y == apple.getY()) {
+        if (x == food.getX() && y == food.getY()) {
             locateApple();
             BodyPart b = new BodyPart(snake.get(snake.size() - 1).getX(), snake.get(snake.size() - 1).getY(), TILE_SIZE);
             snake.add(0, b);
@@ -106,9 +110,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     //so that the apple isn't located inside the snake
     public void locateApple() {
-        apple = new Apple(random.nextInt(WIDTH / TILE_SIZE), random.nextInt(WIDTH / TILE_SIZE), TILE_SIZE);
+        food = new Food(random.nextInt(WIDTH / TILE_SIZE), random.nextInt(WIDTH / TILE_SIZE), TILE_SIZE);
         for (BodyPart b : snake) {
-            if (b.getX() == apple.getX() && b.getY() == apple.getY()) {
+            if (b.getX() == food.getX() && b.getY() == food.getY()) {
                 locateApple();
             }
         }

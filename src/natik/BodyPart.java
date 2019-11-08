@@ -26,4 +26,16 @@ public class BodyPart {
         g.setColor(Color.GREEN);
         g.fillRect(x * size, y * size, size, size);
     }
+
+    public void drawHead(Graphics g){
+        g.setColor(Color.GREEN);
+        g.fillRect(x * size, y * size, size, size);
+        g.setColor(Color.BLACK);
+        g.drawOval(x*size+5, y*size+5, 5, 5);
+        g.fillOval(x*size+5, y*size+5, 5, 5);
+        g.drawOval(x*size+15, y*size+5, 5, 5);
+        g.fillOval(x*size+15, y*size+5, 5, 5);
+        g.drawArc(x * size+3, y * size+6, size-6, size-10, 180, 180);
+        g.fillArc(x * size+2, y * size+6, size-4, size-9, 180, 180);
+    }
 }
