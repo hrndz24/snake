@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="29034c30-a220-4ff4-84d9-4732a7ad307c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/natik/Apple.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/natik/BodyPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/natik/BodyPart.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/snake/natik/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/natik/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/natik/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/natik/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/natik/Apple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/natik/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/natik/BodyPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/natik/BodyPart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/natik/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/natik/GamePanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -84,7 +84,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         snake.remove(0);
 
         if (x == food.getX() && y == food.getY()) {
-            locateApple();
+            locateFood();
             BodyPart b = new BodyPart(snake.get(snake.size() - 1).getX(), snake.get(snake.size() - 1).getY(), TILE_SIZE);
             snake.add(0, b);
             collision = false; // so that not to stop when it gets the food
@@ -99,21 +99,34 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             }
         }
 
+        if(x<0){
+            x=WIDTH/TILE_SIZE;
+        }
+        if(x>WIDTH/TILE_SIZE){
+            x = -1;
+        }
+        if(y<0){
+            y = HEIGHT/TILE_SIZE;
+        }
+        if(y>HEIGHT/TILE_SIZE){
+            y = -1;
+        }
+        /**
         if (x < 0 || x > WIDTH / TILE_SIZE - 1 || y < 0 || y > HEIGHT / TILE_SIZE - 1) {
             stop();
         }
-
+*/
         if (snake.size() == WIDTH * HEIGHT / (TILE_SIZE * TILE_SIZE)) {
             stop();
         }
     }
 
     //so that the apple isn't located inside the snake
-    public void locateApple() {
+    public void locateFood() {
         food = new Food(random.nextInt(WIDTH / TILE_SIZE), random.nextInt(WIDTH / TILE_SIZE), TILE_SIZE);
         for (BodyPart b : snake) {
             if (b.getX() == food.getX() && b.getY() == food.getY()) {
-                locateApple();
+                locateFood();
             }
         }
     }
