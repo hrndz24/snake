@@ -32,8 +32,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
         thread.start();
         running = true;
         snake = new ArrayList<>();
-        x = random.nextInt(WIDTH / TILE_SIZE/2);
-        y = random.nextInt(HEIGHT / TILE_SIZE/2);
+        x = random.nextInt(WIDTH / TILE_SIZE / 2);
+        y = random.nextInt(HEIGHT / TILE_SIZE / 2);
         food = new Food(random.nextInt(WIDTH / TILE_SIZE), random.nextInt(WIDTH / TILE_SIZE), TILE_SIZE);
         addKeyListener(this);
     }
@@ -50,8 +50,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             g.drawLine(0, i * TILE_SIZE, WIDTH, i * TILE_SIZE);
         }
 
-        for (int i =0;i<snake.size();i++) {
-            if(i==snake.size()-1){
+        for (int i = 0; i < snake.size(); i++) {
+            if (i == snake.size() - 1) {
                 snake.get(i).drawHead(g);
             } else {
                 snake.get(i).draw(g);
@@ -99,23 +99,23 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             }
         }
 
-        if(x<0){
-            x=WIDTH/TILE_SIZE;
+        if (x < 0) {
+            x = WIDTH / TILE_SIZE;
         }
-        if(x>WIDTH/TILE_SIZE){
+        if (x > WIDTH / TILE_SIZE) {
             x = -1;
         }
-        if(y<0){
-            y = HEIGHT/TILE_SIZE;
+        if (y < 0) {
+            y = HEIGHT / TILE_SIZE;
         }
-        if(y>HEIGHT/TILE_SIZE){
+        if (y > HEIGHT / TILE_SIZE) {
             y = -1;
         }
-        /**
-        if (x < 0 || x > WIDTH / TILE_SIZE - 1 || y < 0 || y > HEIGHT / TILE_SIZE - 1) {
-            stop();
-        }
-*/
+        /** in case of collision with the boards
+         if (x < 0 || x > WIDTH / TILE_SIZE - 1 || y < 0 || y > HEIGHT / TILE_SIZE - 1) {
+         stop();
+         }
+         */
         if (snake.size() == WIDTH * HEIGHT / (TILE_SIZE * TILE_SIZE)) {
             stop();
         }
